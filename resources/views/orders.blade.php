@@ -22,7 +22,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($orders as $order)
+            @foreach($vm->orders as $order)
                 <tr>
                     <td>{{$order['id']}}</td>
                     <td>{{$order['partnerName']}}</td>
@@ -33,7 +33,7 @@
             @endforeach
             </tbody>
         </table>
-        {{ $orders->links() }}
+        {{ $vm->orders->links() }}
     </div>
 </div>
 </body>
