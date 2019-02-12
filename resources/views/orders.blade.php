@@ -24,7 +24,7 @@
             <tbody>
             @foreach($vm->orders as $order)
                 <tr>
-                    <td>{{$order['id']}}</td>
+                    <td><a target="_blank" href="{{route("edit-order", ["id" => $order['id']])}}">{{$order['id']}}</a></td>
                     <td>{{$order['partnerName']}}</td>
                     <td>{{$order['sum']}}</td>
                     <td>{{$order['composition']}}</td>

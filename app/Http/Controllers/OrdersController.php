@@ -17,4 +17,9 @@ class OrdersController extends Controller
 
         return view("orders", ["vm" => $vm]);
     }
+
+    public function show($id)
+    {
+        return view("edit-order", ["id" => $id]);
+    }
 }
