@@ -16,3 +16,4 @@ Route::get('/', function () {
 })->name("main");
 
 Route::get("/temp", "TemperatureController@index")->name("temp");
+Route::get("/orders", "OrdersController@index")->name("orders");
