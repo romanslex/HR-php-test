@@ -13,6 +13,6 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name("main");
 
 Route::get("/temp", "TemperatureController@index")->name("temp");

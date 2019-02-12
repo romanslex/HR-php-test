@@ -9,9 +9,14 @@
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">Температура в Брянске: {{$temp}}°C</h5>
+<div class="container">
+    <div class="row">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Температура в Брянске: {{$temp}}°C</h5>
+                <a href="{{route("main")}}" class="btn btn-primary">На главную</a>
+            </div>
+        </div>
     </div>
 </div>
 </body>
