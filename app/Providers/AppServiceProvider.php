@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Implementations\Weather\YandexWeatherService;
+use App\IWeatherService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(IWeatherService::class, YandexWeatherService::class);
     }
 }
