@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    protected $guarded = [];
+
     private $statuses = [
         0 => "новый",
         10 => "подтвержден",
