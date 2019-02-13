@@ -22,18 +22,22 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($vm->orders as $order)
+            @foreach($orders as $order)
                 <tr>
-                    <td>{{$order['id']}}</td>
-                    <td>{{$order['partnerName']}}</td>
-                    <td>{{$order['sum']}}</td>
-                    <td>{{$order['composition']}}</td>
-                    <th>{{$order['status']}}</th>
+                    <td><a target="_blank" href="{{route("edit-order", ["id" => $order->id])}}">{{$order->id}}</a></td>
+                    <td>{{$order->partner->name}}</td>
+                    <td>{{$order->getSum()}}</td>
+                    <td style="font-size: 12px">
+                        @foreach($order->products as $product)
+                            <div>{{$product->name}}: {{$product->pivot->quantity}}</div>
+                        @endforeach
+                    </td>
+                    <th>{{$order->getStatusString()}}</th>
                 </tr>
             @endforeach
             </tbody>
         </table>
-        {{ $vm->orders->links() }}
+        {{ $orders->links() }}
     </div>
 </div>
 </body>

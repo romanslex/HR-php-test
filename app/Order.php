@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    protected $guarded = [];
+
     private $statuses = [
         0 => "новый",
         10 => "подтвержден",
@@ -29,13 +31,6 @@ class Order extends Model
         return $this->products->sum(function ($product) {
             return $product->pivot->quantity * $product->price;
         });
-    }
-
-    public function getProductsComposition()
-    {
-        return implode(", ", $this->products->map(function ($product) {
-            return $product->name . ": " . $product->pivot->quantity;
-        })->toArray());
     }
 
     public function getStatusString()
