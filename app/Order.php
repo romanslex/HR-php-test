@@ -33,13 +33,6 @@ class Order extends Model
         });
     }
 
-    public function getProductsComposition()
-    {
-        return implode(", ", $this->products->map(function ($product) {
-            return $product->name . ": " . $product->pivot->quantity;
-        })->toArray());
-    }
-
     public function getStatusString()
     {
         return $this->statuses[$this->status];
