@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Partner;
 use App\ViewModels\OrdersViewModel;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,8 @@ class OrdersController extends Controller
 
     public function show($id)
     {
-        return view("edit-order", ["id" => $id]);
+        $order = Order::with("products")->findOrFail($id);
+        $partners = Partner::all();
+        return view("edit-order", ["order" => $order, "partners" => $partners]);
     }
 }
